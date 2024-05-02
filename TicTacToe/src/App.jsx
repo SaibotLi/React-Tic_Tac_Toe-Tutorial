@@ -57,6 +57,9 @@ const updateBoard = (index) => {
 // Cambio el turno
   const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
   setTurn(newTurn)
+  // guardar aqui partida
+window.localStorage.setItem("board", JSON.stringify(newBoard)),
+window.localStorage.setItem("turn", newTurn)
   // Revisar si hay ganador
   const newWinner = checkWinner(newBoard)
   if (newWinner) {
